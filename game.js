@@ -23,18 +23,22 @@ function timeStart(){
 	
 	function timeCount(){
 		var allbox = document.querySelectorAll("#game-layer div");
+		second -= 1;
+		x.innerHTML = second;
 		// จัดการเกี่ยวกับเวลา เช่น ถ้ายังมีกล่องเหลืออยู่ เวลาจะลดลงเรื่อยๆ
 		// ถ้าไม่มีกล่องเหลือแล้ว และเวลายังเหลืออยู่จะขึ้นว่า You win!
 		if(allbox.length == 0 && second > 0 ){
 			alert("You win!");
 			clearInterval(timer);
+			second = second * 0;
+			x.innerHTML = second;
 		}
 		// ถ้าเวลาหมด แต่ยังมีกล่องเหลืออยู่ จะบอกว่า Game over และทำการ clear screen
 		else if(allbox.length > 0 && second == 0 ){
 			alert("Game over");
-
 			clearInterval(timer);
-
+			second = second * 0;
+			x.innerHTML = second;
 			clearScreen();
 		}
 	}
